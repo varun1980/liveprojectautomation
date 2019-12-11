@@ -39,18 +39,21 @@ public class LoginPage {
              *********************************/
 
             // Switching to Alert
-            Alert alert = getDriver().switchTo().alert();
+           Alert alert = driver.switchTo().alert();
 
             // Capturing alert message.
-            String alertMessage= getDriver().switchTo().alert().getText();
+          String alertMessage= driver.switchTo().alert().getText();
 
             // Displaying alert message
-            System.out.println(alertMessage);
+        System.out.println(alertMessage);
 
             // Accepting alert
             alert.accept();
 
-
-
+            if (alertMessage.contains("User or Password is not valid")) {
+                System.out.println("Test Passed");
+            } else {
+                System.out.println("Test Failed");
+            }
         }
     }

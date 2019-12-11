@@ -8,8 +8,11 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
+import static com.guru99demov4.Utils.Driver.getDriver;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.*;
 
@@ -51,5 +54,20 @@ public void the_user_is_informed_that_the_login_is_successful() {
 }
 
 
+        @When("I enter invalid username {string} and invalid password {string}")
+        public void i_enter_invalid_username_and_invalid_password(String username, String password) {
+                loginPage.enterUsername(username);
+                loginPage.enterPassword(password);
+                loginPage.clickLoginButton();
+        }
 
-}
+        @Then("the user is informed that the login is unsuccessful")
+        public void the_user_is_informed_that_the_login_is_unsuccessful() {
+
+                try {
+                        loginPage.alertMessage();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+
+                }}
