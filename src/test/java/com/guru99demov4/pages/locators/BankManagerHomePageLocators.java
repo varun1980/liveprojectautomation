@@ -8,4 +8,8 @@ public class BankManagerHomePageLocators {
 
     //Welcome Message
     private By welcomeMessage = By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[2]/td/marquee");
+
+    //Manager ID
+    private By managerID = By.xpath(".//tr[@class=\"heading3\"]/td");
 }
+

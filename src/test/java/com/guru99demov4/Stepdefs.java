@@ -22,6 +22,7 @@ public class Stepdefs {
         LoginPage loginPage;
         BankManagerHomePage bankManagerHomePage;
 
+
 @Before
 public void setUp(){
         //Get the driver for the browser (e.g. ChromeDriver)
@@ -51,8 +52,9 @@ public void i_enter_username_and(String username, String password) {
 @Then("the user is informed that the login is successful")
 public void the_user_is_informed_that_the_login_is_successful() {
     assertThat("Login failed or the Login Successful message didn't appear", bankManagerHomePage.checkForSuccessfulLoginMessage(),containsString ("Welcome To Manager's Page of Guru99 Bank"));
+    assertThat("Manager ID",bankManagerHomePage.checkMngID(),containsString("mngr236159"));
+    System.out.println(bankManagerHomePage.checkMngID());
 }
-
 
         @When("I enter invalid username {string} and invalid password {string}")
         public void i_enter_invalid_username_and_invalid_password(String username, String password) {

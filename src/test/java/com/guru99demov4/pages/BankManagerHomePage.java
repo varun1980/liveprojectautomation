@@ -22,4 +22,11 @@ public class BankManagerHomePage {
     public String checkForSuccessfulLoginMessage(){
 
         return Waits.waitForElement(bankManagerHomePageLocators.getWelcomeMessage(),driver).getText();
-}}
+    }
+
+    public String checkMngID(){
+
+        return Waits.waitForElement(bankManagerHomePageLocators.getManagerID(),driver).getText();
+    }
+
+}

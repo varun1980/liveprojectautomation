@@ -1,5 +1,6 @@
 package com.guru99demov4.pages;
 
+import com.guru99demov4.Utils.Waits;
 import com.guru99demov4.pages.locators.LoginPageLocators;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -20,18 +21,18 @@ public class LoginPage {
     }
 
     public void enterUsername (String username){
-        driver.findElement(locators.getUsernameLocator()).sendKeys(username);
+        Waits.waitForElement(locators.getUsernameLocator(),driver).sendKeys(username);
     }
     public void enterPassword (String password){
-        driver.findElement(locators.getPasswordLocator()).sendKeys(password);
+        Waits.waitForElement(locators.getPasswordLocator(),driver).sendKeys(password);
     }
     public void clickLoginButton() {
-        driver.findElement(locators.getLoginbuttonLocator()).click();
+        Waits.waitForElement(locators.getLoginbuttonLocator(),driver).click();
     }
         /**
          * Alert message
          */
-        public void alertMessage(){
+        public void  alertMessage  (){
 
 
             /*********************************
